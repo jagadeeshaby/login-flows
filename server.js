@@ -9,7 +9,7 @@ const express = require("express");
 
 // Instantiate an Express application
 const app = express();
-.
+
 https
     .createServer({
         key: fs.readFileSync("cert/localhost-key.pem"),
