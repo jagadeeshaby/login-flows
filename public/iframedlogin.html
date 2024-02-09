@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- http-equiv="Content-Security-Policy" content="default-src 'self' https://dr-ccpui-canary-pdx-prod-cell-1-replica.my.connect.aws https://dr-ccpui-canary-pdx-prod-cell-1.my.connect.aws"-->
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/amazon-connect-streams@2.12.0/release/connect-streams.js"></script>
+  </head>
+  <!-- Add the call to init() as an onload so it will only run once the page is loaded -->
+    <body onload="init()">
+
+    <h1>Welcome Team - Lets explore different login approaches which our customers use today</h1>
+
+
+
+    <iframe src="https://us-east-1.console.aws.amazon.com/connect/federate/ffafacba-0933-4821-89a0-047b3cdaab19?destination=/connect/ccp-v2"></iframe>
+
+    <h2>Using Iframed Login</h2>
+    <div id="container-div" style="width: 400px; height: 800px;"></div>
+
+
+
+    <script type="text/javascript">
+
+      var containerDiv = document.getElementById("container-div");
+      var instanceURL = "https://jagadeey-saml-iad-1.awsapps.com/connect/ccp-v2";
+      // initialize the streams api
+      function init() {
+        // initialize the ccp
+        connect.core.initCCP(containerDiv, {
+          ccpUrl: instanceURL,            // REQUIRED
+          loginPopup: false,               // optional, defaults to `true`
+          loginPopupAutoClose: true,      // optional, defaults to `false`
+          loginOptions: {                 // optional, if provided opens login in new window
+            autoClose: true,              // optional, defaults to `false`
+            height: 600,                  // optional, defaults to 578
+            width: 400,                   // optional, defaults to 433
+            top: 0,                       // optional, defaults to 0
+            left: 0                       // optional, defaults to 0
+          },
+          region: 'us-east-1', // REQUIRED for `CHAT`, optional otherwise
+          softphone: {
+            // optional, defaults below apply if not provided
+            allowFramedSoftphone: true, // optional, defaults to false
+            disableRingtone: false, // optional, defaults to false
+            ringtoneUrl: '[your-ringtone-filepath].mp3', // optional, defaults to CCP’s default ringtone if a falsy value is set
+            disableEchoCancellation: false, // optional, defaults to false
+            allowFramedVideoCall: true, // optional, default to false
+            VDIPlatform: null, // optional, provide with 'CITRIX' if using Citrix VDI, or use enum VDIPlatformType
+            allowEarlyGum: true, //optional, default to true
+          },
+          storageAccess: {
+            canRequest: false, // By default this is set to true. You can set it to false to opt out from checking storage access.  
+             // To use the default banner, set this to "default"
+            /** More customization options can be found here: https://github.com/amazon-connect/amazon-connect-streams/blob/master/src/index.d.ts under StorageAccessParameters */
+          },
+          pageOptions: { //optional
+            enableAudioDeviceSettings: false, //optional, defaults to 'false'
+            enableVideoDeviceSettings: false, //optional, defaults to 'false'
+            enablePhoneTypeSettings: true //optional, defaults to 'true' 
+          },
+          shouldAddNamespaceToLogs: false, //optional, defaults to 'false'
+          ccpAckTimeout: 5000, //optional, defaults to 3000 (ms)
+          ccpSynTimeout: 3000, //optional, defaults to 1000 (ms)
+          ccpLoadTimeout: 4000 //optional, defaults to 5000 (ms)
+         });
+      }
+    </script>
+  </body>
+</html>
+
+</body>
+</html>

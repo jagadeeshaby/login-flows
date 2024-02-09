@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/amazon-connect-streams@2.12.0/release/connect-streams.js"></script>
+  </head>
+    <body onload="init()">
+
+    <h1>Welcome Team - Lets explore different login approaches which our customers use today</h1>
+
+    <iframe id="login-iframe" name="login-iframe"></iframe>
+
+    <form style="display:none;" id="login-form" action="https://jagadeey-saml-iad-1.awsapps.com/connect/auth/sign-in" method="post" target="login-iframe">
+      <input name="credentials" value='{"AccessToken":"Connect-Token-AgR4oK3HJi5tLg5IEOorj3sFBo6lRZPEM7evsGENdGE5eWwAAAABAAdhd3Mta21zAEthcm46YXdzOmttczp1cy1lYXN0LTE6MTE0OTM5ODE2OTE0OmtleS8yNDE2OGY5ZC0xM2MyLTQyM2ItYmIwYS0zMGFmYTIwZGIwNzgAuAECAQB4CUiATv-TkpM0Kx_QhQx22loe10JhO09ECu3759iFMcoBNlH3s4r1JA0fxXIETzIpkgAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDNZNcab4HGAEQy6V0QIBEIA7nDL5Jjgmi-ykBuaXgpfCiWsv9MaST_O2dD1fanibXUgtKx7MKJmRL73vGI__kRd0mEuF_WngJnFERGoCAAAQAMsakMjjW9TfVhhGEyQfdlUkZgd7pHtRRZ3hA5hNBIozMuamhgWWndf3Tlu1OiHiSf____8AAAABAAAAAAAAAAAAAAABAAACJQvzuOm7BYCoAoVohhVOkw8sILAPMfRx9Zwu8SOnMn02nhYCyzg2M9izCz2fpXAUypA5nhbYHqxdMNlIxyMpTaQWaooKPz4A9W1_mD62xrUhK6tSw6-68GbBYsriCithOtQw_IX_lRcU2vIN7ggFAKVn5rFL-8IaJl5kvlO43NUXUHs4sitV-e3qBDP0VYiSid6wQ3T-kYC5oaOfvDT5D1e3hpG-Etd-bg2qeUeb5FdhcWbqaPFfHI2YsiLWD_3bMeHk9opHk02g64qcrB1oBgDpiU7vcm8hapd1EHESBOwrMRa1yu3QsVXAdYN5mEUNc3EYK-DkZVU2eSO2W5AASWiakbsIUj_EGHKYrFV3MEoNEjFgaKjwHnOqcyOHZnD0MIV9t3KrUZLA4huoK5_temPp1CsqDz2uhq2WIpPXaNVAgqSoA3gmIB3D7lZFLcsd_hAoY1KJK0E-8pRmCy8UGml5cCoTdwfx1Qy8tC_Upv-P7_EsSfdS_Apzlgn0mNO2-bB1gHqrPfA55w7a0LN026-WKE3lktagdXbV4mTDnu2dFPvKtio9cxR6ShPeNmFo29wWgw4KlMQLColiNVeW-dyNZr5QannbuA-PiaiQZ_WC8SI038-aoc-ibhVjbX0exmefKcuHwhjUuMZvKLRcCVdOixT6X4dGqEM7xFmOQq-0sWUf_j9yL6MDKxO0rTp-z6DAYWBy9RgaU9OeWUS_qvu6GknDN2iYLBOlYkFnGpzjtEk9Tpk=","AccessTokenExpiration":1707512084057,"RefreshToken":"Connect-Token-AgR4Ulh5etJPBoIS18SKlKVKLJJ4tY8EFKQo34lIVqsyRboAAAABAAdhd3Mta21zAEthcm46YXdzOmttczp1cy1lYXN0LTE6MTE0OTM5ODE2OTE0OmtleS8yNDE2OGY5ZC0xM2MyLTQyM2ItYmIwYS0zMGFmYTIwZGIwNzgAuAECAQB4CUiATv-TkpM0Kx_QhQx22loe10JhO09ECu3759iFMcoBNlH3s4r1JA0fxXIETzIpkgAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDNZNcab4HGAEQy6V0QIBEIA7nDL5Jjgmi-ykBuaXgpfCiWsv9MaST_O2dD1fanibXUgtKx7MKJmRL73vGI__kRd0mEuF_WngJnFERGoCAAAQAEnGKx5tqNmty7UX1CcFT7KYbR0PheKfth3aj_oHivGl_x-Tm7K8VBshLb9VuN43______8AAAABAAAAAAAAAAAAAAABAAABUn2LTyFIG5ZeNsrurCdkyfxsineMG3ke64ryIgxsLIUk4D2qmjv3QRwyb3phsYccr3TbIkbgi3DZM0QJ-CXYg7XFAs09_lZl9YtUIv8p_qfX3eRatCw7159mRq8gq3gH5gp1j7gOBH-a-lsBXOeeeMAysU2rt2VpOF82rRImkp5S4ZuUXXaxsfPzoyetnaV2RRiRwvSfvyk9pymQJY8RwcNnlVPgmblSmVJSz-KzRCIJqwPmDi-N1ffV8Ll64CtINmI_LUVqj_V--fc9HNgnYnwJhq1fXz1eOMpPSvfXsARmOvxP647mKqy2bPlFmCVbCW3rotu5boIyLike14tzDYUjbYUEJG0vlDsWDOYuNOs_pxjTo_vokZq76yD-qmHB7hkecqY8UbienY6Tr_-gmmOfE33ehuEw6lkXOdcDJlh-O3hyj-7zYXVG_1nwwpbdEMSc_-c_HD2xbfk_secnPKCveA==","RefreshTokenExpiration":1707551684084}'>
+      <input name="destination" value="/connect/ccp-v2">
+    </form>
+
+
+    <h2>Using Iframed Auth signin Login</h2>
+
+    <div id="container-div" style="width: 400px; height: 800px;"></div>
+
+    <script type="text/javascript">
+
+      document.getElementById("login-form").submit();
+
+      connect.core.onInitialized(function() {
+        document.getElementById("login-iframe").remove();
+        document.getElementById("login-form").remove()
+      });
+
+
+      var containerDiv = document.getElementById("container-div");
+      var instanceURL = "https://jagadeey-saml-iad-1.awsapps.com/connect/ccp-v2";
+      // initialize the streams api
+      function init() {
+        // initialize the ccp
+        connect.core.initCCP(containerDiv, {
+          ccpUrl: instanceURL,            // REQUIRED
+          loginPopup: false,               // optional, defaults to `true`
+          loginPopupAutoClose: true,      // optional, defaults to `false`
+          loginOptions: {                 // optional, if provided opens login in new window
+            autoClose: true,              // optional, defaults to `false`
+            height: 600,                  // optional, defaults to 578
+            width: 400,                   // optional, defaults to 433
+            top: 0,                       // optional, defaults to 0
+            left: 0                       // optional, defaults to 0
+          },
+          region: 'us-east-1', // REQUIRED for `CHAT`, optional otherwise
+          softphone: {
+            // optional, defaults below apply if not provided
+            allowFramedSoftphone: true, // optional, defaults to false
+            disableRingtone: false, // optional, defaults to false
+            ringtoneUrl: '[your-ringtone-filepath].mp3', // optional, defaults to CCP’s default ringtone if a falsy value is set
+            disableEchoCancellation: false, // optional, defaults to false
+            allowFramedVideoCall: true, // optional, default to false
+            VDIPlatform: null, // optional, provide with 'CITRIX' if using Citrix VDI, or use enum VDIPlatformType
+            allowEarlyGum: true, //optional, default to true
+          },
+          storageAccess: {
+            canRequest: false, // By default this is set to true. You can set it to false to opt out from checking storage access.  
+             // To use the default banner, set this to "default"
+            /** More customization options can be found here: https://github.com/amazon-connect/amazon-connect-streams/blob/master/src/index.d.ts under StorageAccessParameters */
+          },
+          pageOptions: { //optional
+            enableAudioDeviceSettings: false, //optional, defaults to 'false'
+            enableVideoDeviceSettings: false, //optional, defaults to 'false'
+            enablePhoneTypeSettings: true //optional, defaults to 'true' 
+          },
+          shouldAddNamespaceToLogs: false, //optional, defaults to 'false'
+          ccpAckTimeout: 5000, //optional, defaults to 3000 (ms)
+          ccpSynTimeout: 3000, //optional, defaults to 1000 (ms)
+          ccpLoadTimeout: 4000 //optional, defaults to 5000 (ms)
+         });
+      }
+    </script>
+  </body>
+</html>
+
+</body>
+</html>
